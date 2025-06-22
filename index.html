@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tubman University Complaint_Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>TU_ComplaintHub</h1>
+        <div class="auth-buttons">
+            <button id="loginBtn">Login</button>
+            <button id="registerBtn">Register</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="University Email" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <select id="userType">
+                        <option value="student">Student</option>
+                        <option value="faculty">Faculty</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Add this modal after the login modal in index.html -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Register New Account</h2>
+        <form id="registerForm">
+            <input type="text" id="registerName" placeholder="Full Name" required>
+            <input type="email" id="registerEmail" placeholder="University Email" required>
+            <input type="password" id="registerPassword" placeholder="Password" required>
+            <input type="password" id="registerConfirm" placeholder="Confirm Password" required>
+            <select id="registerType" required>
+                <option value="student">Student</option>
+                <option value="faculty">Faculty</option>
+            </select>
+            <div class="form-group">
+                <label for="registerId">University ID</label>
+                <input type="text" id="registerId" required>
+            </div>
+            <div class="form-group">
+                <label for="registerDepartment">Department</label>
+                <input type="text" id="registerDepartment" required>
+            </div>
+            <button type="submit">Request Registration</button>
+        </form>
+        <p class="register-note">Note: Your account requires admin approval before you can login.</p>
+    </div>
+</div>
+
+        <!-- Complaint Form (shown after login) -->
+        <div id="complaintSection" class="hidden">
+            <h2>Submit a Complaint</h2>
+            <form id="complaintForm">
+                <div class="form-group">
+                    <label for="complaintTitle">Title</label>
+                    <input type="text" id="complaintTitle" required placeholder="what is the tile of your issue"> 
+                </div>
+                <div class="form-group">
+                    <label for="complaintCategory">Category</label>
+                    <select id="complaintCategory" required>
+                        <option value="network">Network Issues</option>
+                        <option value="software">Software Problems</option>
+                        <option value="hardware">Hardware Issues</option>
+                        <option value="account">Account Problems</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="complaintUrgency">Urgency</label>
+                    <select id="complaintUrgency" required>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="complaintDescription">Description</label>
+                    <textarea id="complaintDescription" rows="5" required placeholder="give clear description of your issue"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="complaintAttachment">Attachment (optional)</label>
+                    <input type="file" id="complaintAttachment">
+                </div>
+                <button type="submit">Submit Complaint</button>
+            </form>
+
+            <!-- My Complaints Section -->
+            <!-- <div id="myComplaints">
+                <h2>My Complaints</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="complaintsList">
+                        <!-- Filled by JavaScript -->
+                    </tbody>
+                </table>
+            </div> 
+        </div>
+    </div>
+
+    <script src="db.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
